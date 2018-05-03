@@ -5,7 +5,7 @@ namespace Uecode\Bundle\ApiKeyBundle\DependencyInjection\Security\Factory;
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
@@ -16,11 +16,11 @@ class ApiKeyFactory implements SecurityFactoryInterface
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
         $providerId = 'security.authentication.provider.api_key.' . $id;
-        $container->setDefinition($providerId, new DefinitionDecorator('uecode.api_key.provider.api_key'))
+        $container->setDefinition($providerId, new ChildDefinition('uecode.api_key.provider.api_key'))
             ->replaceArgument(0, new Reference($userProvider));
 
         $listenerId = 'security.authentication.listener.api_key.' . $id;
-        $listener = $container->setDefinition($listenerId, new DefinitionDecorator('uecode.api_key.listener.api_key'));
+        $listener = $container->setDefinition($listenerId, new ChildDefinition('uecode.api_key.listener.api_key'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }

@@ -4,7 +4,6 @@
     "license": "Apache 2.0",
     "require": {
         "php": "^5.3|^7.0",
-        "symfony/symfony": "^2.3|^3.0",
         "friendsofsymfony/user-bundle": "^1|~2.0@dev"
     },
     "autoload": {
