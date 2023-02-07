@@ -3,18 +3,17 @@
 namespace Uecode\Bundle\ApiKeyBundle\Security\Firewall;
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Http\Firewall\ListenerInterface;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Uecode\Bundle\ApiKeyBundle\Security\Authentication\Token\ApiKeyUserToken;
 use Uecode\Bundle\ApiKeyBundle\Extractor\KeyExtractor;
 
 /**
  * @author Aaron Scherer <aequasi@gmail.com>
  */
-class ApiKeyListener implements ListenerInterface
+class ApiKeyListener
 {
     /**
      * @var TokenStorageInterface
@@ -41,9 +40,9 @@ class ApiKeyListener implements ListenerInterface
     /**
      * This interface must be implemented by firewall listeners.
      *
-     * @param GetResponseEvent $event
+     * @param RequestEvent $event
      */
-    public function handle(GetResponseEvent $event)
+    public function __invoke(RequestEvent $event)
     {
         $request = $event->getRequest();
 

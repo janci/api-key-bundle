@@ -31,7 +31,7 @@ class EmailUserProvider extends FOSUserProvider implements ApiKeyUserProviderInt
      * @return SecurityUserInterface
      * @throws UnsupportedUserException
      */
-    public function refreshUser(SecurityUserInterface $user)
+    public function refreshUser(SecurityUserInterface $user): SecurityUserInterface
     {
         if ($this->stateless) {
             throw new UnsupportedUserException();

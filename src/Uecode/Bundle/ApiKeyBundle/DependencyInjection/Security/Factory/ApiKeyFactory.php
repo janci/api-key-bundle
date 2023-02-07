@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class ApiKeyFactory implements SecurityFactoryInterface
 {
-    public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
+    public function create(ContainerBuilder $container, string $id, array $config, string $userProvider, ?string $defaultEntryPoint)
     {
         $providerId = 'security.authentication.provider.api_key.' . $id;
         $container->setDefinition($providerId, new ChildDefinition('uecode.api_key.provider.api_key'))

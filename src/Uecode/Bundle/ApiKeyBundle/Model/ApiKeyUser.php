@@ -4,11 +4,9 @@ namespace Uecode\Bundle\ApiKeyBundle\Model;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use FOS\UserBundle\Model\UserInterface;
-use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Uecode\Bundle\ApiKeyBundle\Util\ApiKeyGenerator;
 
-class ApiKeyUser extends BaseUser implements UserInterface, AdvancedUserInterface, BaseUserInterface
+class ApiKeyUser extends BaseUser implements UserInterface
 {
     protected $apiKey;
 

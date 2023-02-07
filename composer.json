@@ -3,8 +3,9 @@
     "description": "Creates an avenue for using ApiKey authentication for Symfony2. Requires FOSUserBundle.",
     "license": "Apache 2.0",
     "require": {
-        "php": "^5.3|^7.0",
-        "friendsofsymfony/user-bundle": "^1|~2.0|~3.0"
+        "php": ">=7.2",
+        "friendsofsymfony/user-bundle": "^1|~2.0|~3.0",
+        "symfony/http-kernel": "^4.4|^5.4"
     },
     "autoload": {
         "psr-0": {
